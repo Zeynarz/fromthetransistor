@@ -1,0 +1,110 @@
+So what is a transistor? / Characteristic of a transistor
+-----------------------------------------------------------
+A transistor is just an electronic component, like resistors, leds, switches etc.
+It has three pins, (E)mitter, (B)ase, (C)ollector
+
+When the E and C pins are connected to a circuit, it blocks the flow of current, which means electrons can't flow past the transistor.
+Only when voltage is applied to the base pin / there is electricity passing through the base pin, the flow of current isn't blocked. 
+(So its kinda like a switch that you can turn on and off by passing electricity through the base pin)
+
+What can you do with a transistor?
+-------------------------------------
+The main reason why transistors play such a vital role in computing, is because it can be used to make logic gates, and logic gates can be used to make even more complicated logic gates/chips, and all these logic gates are used to build stuff like CPUs,RAMs etc (which can be thought of as even MORE complicated logic gates / chips).
+
+You can actually just think of logic gates, as plain electric circuits.
+An example of a simple logic gate, is the AND gate.
+Circuit diagram: imgs/ANDgate.png
+
+As you can see, an AND gate is just a combination of two transistors, with A and B being the input, and OUT being the output
+OUT only has electrons flowing through it, when voltage is provided to A and B.
+In other words, only when A AND B are on(voltage is provided to them), OUT will be on.
+
+(1s and 0s, bits, are actually just on or off, if electrons are flowing through it/voltage is provided to it, its on, which is 1, if no electrons are flowing through it, its off, which is 0)
+Other logic gates examples: OR,XOR,NAND,NOR,MUX,DEMUX ...
+
+So using these logic gates,combining multiple logic gates together,we can manipulate bits however we want, and make them do what we want.
+An example of combining logic gates to build what we want, is the adder.
+Circuit diagram: imgs/adder.png (This is full adder)
+
+The adder as the name suggests, adds two bits together.
+(NOTE: the bits will wrap around when the sum becomes too big,so 1+1 will become 0)
+
+A and B are the two bits you want to add, Cin is if there is an extra carry you want to add too,S is the sum of the bits, and Cout is if the sum has a carry
+Now the adder already uses quite a few logic gates, but now if you want to make a 4 bit adder (since it currently is only a 1 bit adder), you can connect a couple adders together, and make a 4 bit adder 
+
+Circuit diagram: imgs/4bitAdder.jpeg
+
+The top Cin is set to 0
+If 0101 + 1010, 
+A0 (topmost A) = 1, A1 = 0, A2 = 1, A3 = 0
+B0 (topmost B) = 0, B1 = 1, B2 = 0, B3 = 1
+
+Now another way to actually draw this circuit diagram, is by drawing it like 
+this: imgs/4bitAdderSimple
+
+Now this segue into the next topic nicely
+
+The idea of abstraction
+------------------------
+The the most important concept in computer science, abstraction
+When you have already built a full adder, you don't need to know how it works anymore, you just need to know how to use it / its interface.
+
+
+When you have built a transistor, you don't need to understand the physics concept behind how electricity and everything works, you just need to know the three pins
+When you have built a 16bit full adder, you don't need to understand how the logic gates link together and how the transistors work together, just need to know how to use the input and output pins.
+When you have built a CPU, you don't need to know how the ALU works, how the program counter and everything works, you just need to know what instructions do what
+When you have built an assembler, you don't need to know how it translates "add esp,8" to instructions, you just need to know assembly
+Same concept goes for compilers,operating systems, and so on and so forth.
+Although the things on top rely on every single thing below it, you don't need to know how each of them work, just need to know how to use the one right under you/ few things under you when you're building something.
+(Building a cpu, need to know how to use logic gates ...)
+
+This is why beginners of computer science can start at the very top of the abstraction chain, and straight up create userland programs, because they just need to know how to use the functionalities of the os lib / api of the os, and use printf, etc, even when they don't understand what a transistor is.
+
+But we must be curious, and always dig deeper.
+
+
+How does a transistor work?
+----------------------------
+https://www.youtube.com/watch?v=IcrBqCFLHIY&ab_channel=Veritasium
+
+(Prerequisite info)
+Semiconductors are what makes a transistor works.
+Semiconductors conducts electric current better than insulators, but not as well as metals
+An example of semiconductors is pure silicon, a silicon atom has 4 valence electrons, which means that it can form 4 single covalent bonds with its 4 nearest neighbours
+(Its neighbours also form bonds with their own neighbours, and so on and so forth, which results in a crystal strucutre)
+
+Since the electrons in the atoms are stuck in covalent bonds, only few electrons get enough energy to escape their bonds and travel through the lattice aka electricity (electrons moving)
+So this is why silicon is a semiconductor, it only has a small number of mobile electrons / charges
+
+Now semiconductors won't be as useful with only this property, but what's cool is that we can do something called doping with semiconductors.
+Doping is injecting atoms of a foreign element into a semiconductor structure (not 100% sure this definition is correct).
+There are two types of doping, n-type and p-type
+
+n-type (negative-type) is injecting an element with 5 valence electrons, like phosphorous
+Phosphorous is similar enough to silicon that it can fit into the silicon lattice, but it brings one extra electron to the table, which means there are more mobile electrons, so the semiconductor can conduct current better
+
+p-type (positive-type) is injecting an element with 3 valence electrons, like boron
+Now this creates a hole, where there should be an electron, but there isn't.
+This still makes the semiconductor conduct current better because electrons can move into the hole, and electrons moving = electricity
+
+Do not think that p-type means the semiconductor is positively charged, and n-type means negatively charged, the amount of electrons are still the same as protons, they are neutral
+
+
+(Actual explanation)
+
+reference: imgs/transistorStruct.png
+(This is taken from the Veritasium vid linked above)
+
+A transistor is made using both n-type and p-type doped semiconductors
+The n-type doped semiconductors are at the ends, and p-type doped semiconductors are at the middle.
+
+(when I say n-types, I mean n-type doped semiconductors,same thing for p-types)
+Normally, when no voltage is applied to the gate, the n-types will donate their extra electrons to the p-types, to fill the holes in the p-types.
+Now of course the n-types nearer to p-types will be the earlier ones to donate, and the p-types near the n-types will be the earlier ones to receive.
+When the p-types receive these electrons, they become negatively charged since they have one extra electron (n-types become positive too)
+Now this forms a depletion layer between the two types, electrons from the n-type can no longer go to the p-type area, this is because the NEGATIVE p-type will REPEL electrons coming from the n-type.
+So the depletion layer prevents the flow of current in the transistor, preventing electrons moving from the source to the drain.
+The current state of the transistor is like an off switch.
+
+Now, when a small positive voltage is applied to the gate, this attracts the electrons over (opposite attracts), and the electrons can overcome the depletion layer,and now electrons can move through the transistor and form a conducting channel, which means that the transistor is now on, electrons are passing through it
+
