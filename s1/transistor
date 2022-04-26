@@ -11,7 +11,7 @@ What can you do with a transistor?
 -------------------------------------
 The main reason why transistors play such a vital role in computing, is because it can be used to make logic gates, and logic gates can be used to make even more complicated logic gates/chips, and all these logic gates are used to build stuff like CPUs,RAMs etc (which can be thought of as even MORE complicated logic gates / chips).
 
-You can actually just think of logic gates, as plain electric circuits.
+Logic gates are just electric circuits. (You can say that CPUs and RAMs are just electric circuits too)
 An example of a simple logic gate, is the AND gate.
 Circuit diagram: imgs/ANDgate.png
 
@@ -81,7 +81,8 @@ Doping is injecting atoms of a foreign element into a semiconductor structure (n
 There are two types of doping, n-type and p-type
 
 n-type (negative-type) is injecting an element with 5 valence electrons, like phosphorous
-Phosphorous is similar enough to silicon that it can fit into the silicon lattice, but it brings one extra electron to the table, which means there are more mobile electrons, so the semiconductor can conduct current better
+Phosphorous is similar enough to silicon that it can fit into the silicon lattice, but it brings one extra electron to the table.
+That electron isn't shared / bonded with other atoms(prob,not sure), so it can easily move through the lattice, which means there are more mobile electrons, so the semiconductor can conduct current better
 
 p-type (positive-type) is injecting an element with 3 valence electrons, like boron
 Now this creates a hole, where there should be an electron, but there isn't.
@@ -99,12 +100,12 @@ A transistor is made using both n-type and p-type doped semiconductors
 The n-type doped semiconductors are at the ends, and p-type doped semiconductors are at the middle.
 
 (when I say n-types, I mean n-type doped semiconductors,same thing for p-types)
-Normally, when no voltage is applied to the gate, the n-types will donate their extra electrons to the p-types, to fill the holes in the p-types.
+When no voltage is applied to the gate, the n-types will donate their extra electrons to the p-types, to fill the holes in the p-types.
 Now of course the n-types nearer to p-types will be the earlier ones to donate, and the p-types near the n-types will be the earlier ones to receive.
 When the p-types receive these electrons, they become negatively charged since they have one extra electron (n-types become positive too)
-Now this forms a depletion layer between the two types, electrons from the n-type can no longer go to the p-type area, this is because the NEGATIVE p-type will REPEL electrons coming from the n-type.
+Now this forms a depletion layer between the two types, electrons from the n-type can no longer go to the p-type area, this is because the NEGATIVELY CHARGED p-types will REPEL electrons coming from the n-type.
 So the depletion layer prevents the flow of current in the transistor, preventing electrons moving from the source to the drain.
 The current state of the transistor is like an off switch.
 
-Now, when a small positive voltage is applied to the gate, this attracts the electrons over (opposite attracts), and the electrons can overcome the depletion layer,and now electrons can move through the transistor and form a conducting channel, which means that the transistor is now on, electrons are passing through it
+Now, when a small positive voltage is applied to the gate, this attracts the electrons over (opposite attracts), and the electrons can overcome the depletion layer,and now electrons can move through the transistor,from the source to drain the and form a conducting channel, which means that the transistor is now on, electrons are passing through it
 

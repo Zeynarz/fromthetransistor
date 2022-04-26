@@ -1,0 +1,79 @@
+What is an FPGA (Field Programmable Gate Array)?
+--------------------------------------------------
+Essentailly, an FPGA is something that can be programmed to be any digital circuit/logic gate circuit that you want.
+You could program it to be a simple half adder using only two logic gates, or you could program it to be a full on processor using tons of different logic gates 
+
+The cool thing is that nothing physically changed, no soldering anything. 
+All you have to do is load a configuration into the memory of the FPGA, and the FPGA will start behaving like the circuit you designed
+
+
+So how does an FPGA work? (LUTs)
+-------------------------------------
+https://learn.sparkfun.com/tutorials/how-does-an-fpga-work/all
+
+The magic behind FPGAs are LUTs (Look-Up Tables)
+LUTs are like multiplexers, you can use them to redirect signals to where you want them / choose one signal from multiple signals
+(From multiple inputs, choose one input to be the output by setting the sel pin)
+
+How multiplexers work: imgs/mux.png (one-hot encoding)
+
+
+Let's say that we have a multiplexer with 4 inputs, and a 2 bit binary select (2bit sel,no more one-hot encoding)
+The 4 inputs are connected to some programmable memory, and the 2 bit binary sel is exposed to the world
+
+                                     -------    
+----------  ------- input 00 ------- |     |
+| memory |  ------- input 01 ------- | MUX | --------- output
+|        |  ------- input 10 ------- |     |
+----------  ------- input 11 ------- |     |
+                                     -------
+                                      |   |
+                                      |   |
+                                  sel[0] sel[1]
+
+
+This is what's called a LUT, see: imgs/lut2.png
+(The 2 in LUT2 indicates that it is a 2 bit binary select)
+
+
+LUT2 chip/gate:
+
+              -------
+sel[0]  ----- |  L  |
+              |  U  | ------- out
+sel[1]  ----- |  T  |
+              |  2  |
+              -------
+
+Now what you can do, is set the contents of the memory so that the LUT behaves how you want it to behave. 
+For example, by setting the memory so that
+
+input 00 to 0
+input 01 to 0
+input 10 to 0
+input 11 to 1
+
+Now you can see, that when sel is 11, the output is 1, but everything else, it is 0
+This LUT has now become an AND gate.
+
+So programming an FPGA pretty much just means that you are setting the contents of memory, and transforming these LUTs into what logic gates you want them to be.
+
+
+Normally LUTs in FPGAs are LUT5s, and Xilinx FPGAs put two LUT5s to make LUT6s
+diagram: imgs/lut6.png
+(The first 4 in bits are the input bits for the two LUT5s, and the MSB is the input for the two way multiplexer)
+
+
+
+So simply, FPGAs are a bunch of connected LUTs, and you can transform these LUTs into other logic gates by setting the memory contents. (Transform logic gates (LUTs) to other logic gates) 
+
+LUTs are just logic gates right (literally multiplexers but with input connected to memory), and logic gates are made with transistors, so you can say that FPGAs are buildable using transistors
+
+
+
+So how does an FPGA work? (FPGA Architecture/Structure)
+---------------------------------------------------------
+The three main components of FPGAs are 
+- CLBs
+- I/O blocks
+- Interconnection wires
