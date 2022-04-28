@@ -77,3 +77,19 @@ The three main components of FPGAs are
 - CLBs
 - I/O blocks
 - Interconnection wires
+
+CLBs are LUTs with extra logic gates, essentially just programmable logic, using the magic described above
+I/O blocks are also blocks of logic gates, designed to take input and output
+Interconnection wires connect the input and output to the CLBs to process and manipulate them
+
+(will research more details in the future, dont know enough right now)
+
+
+What are ICs (integrated circuits)?
+------------------------------------
+(https://learn.sparkfun.com/tutorials/integrated-circuits/all)
+
+An IC is a bunch of electrical components like transistors, resistors, capacitors, which are connected all packed into a small chip, to collectively achieve a goal, maybe it is to be a full-adder, maybe to regulate and reduce voltage, maybe it is to be a microcontroller (mini computer with ram,cpu,rom), etc.
+
+
+So yeah, ICs are just collections of transistors (and more electrical components) in a nice reliable package.

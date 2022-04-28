@@ -22,7 +22,7 @@ In other words, only when A AND B are on(voltage is provided to them), OUT will 
 (1s and 0s, bits, are actually just on or off, if electrons are flowing through it/voltage is provided to it, its on, which is 1, if no electrons are flowing through it, its off, which is 0)
 Other logic gates examples: OR,XOR,NAND,NOR,MUX,DEMUX ...
 
-So using these logic gates,combining multiple logic gates together,we can manipulate bits however we want, and make them do what we want.
+So using these logic gates,combining multiple logic gates together,we can manipulate bits however we want, and make them do what we want. (Instead of saying manipulating bits, we can also say that they manipulate the electrons, manipulate the electricity to go where we want them to go, it's the same thing)
 An example of combining logic gates to build what we want, is the adder.
 Circuit diagram: imgs/adder.png (This is full adder)
 
