@@ -32,7 +32,7 @@ The 4 inputs are connected to some programmable memory, and the 2 bit binary sel
                                   sel[0] sel[1]
 
 
-This is what's called a LUT, see: imgs/lut2.png
+This is what's called a LUT, see: imgs/lut2.png (block diagram)
 (The 2 in LUT2 indicates that it is a 2 bit binary select)
 
 
